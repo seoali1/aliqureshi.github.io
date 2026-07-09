@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Muhammad Ali Qureshi</title>
+<meta name="description" content="Get in touch with Muhammad Ali Qureshi for web design, AI automation, or chatbot projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><span class="dot"></span>M. ALI QURESHI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Let's talk</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="about-hero">
+  <div class="wrap" style="grid-template-columns:1fr; text-align:left;">
+    <span class="eyebrow">Get in touch</span>
+    <h1>Tell me what you're trying to build.</h1>
+    <p>Whether it's a full website, an automation tool, or an AI chatbot — send the details and I'll reply honestly about scope, timeline, and whether it's a good fit.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="contact-card">
+        <div class="contact-icon mono">@</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:seoalione1@gmail.com">seoalione1@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon mono">WA</div>
+        <div>
+          <h4>WhatsApp (primary)</h4>
+          <a href="https://wa.me/923042349059" target="_blank" rel="noopener">+92 304 2349059</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon mono">WA</div>
+        <div>
+          <h4>WhatsApp (alternate)</h4>
+          <a href="https://wa.me/923097083595" target="_blank" rel="noopener">+92 309 7083595</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon mono">PK</div>
+        <div>
+          <h4>Location</h4>
+          <span>Bahawalpur, Punjab, Pakistan</span>
+        </div>
+      </div>
+
+      <p class="contact-note">WhatsApp usually gets the fastest reply. For detailed briefs with files or documents, email works best.</p>
+    </div>
+
+    <div>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="service">What do you need?</label>
+          <select id="service" name="service">
+            <option>Website design & development</option>
+            <option>AI automation tool</option>
+            <option>AI chatbot</option>
+            <option>SEO / Local SEO</option>
+            <option>UI/UX design</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Project details</label>
+          <textarea id="message" name="message" required placeholder="Tell me a bit about what you're building and your timeline..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send via email</button>
+        <p class="contact-note">This opens your email app with the message pre-filled — nothing is sent from this page directly, since it's a static, no-backend site.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo mono">M. ALI QURESHI</div>
+        <p>AI expert, web designer, and automation builder based in Bahawalpur, Pakistan. Working with freelance clients since 2017.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:seoalione1@gmail.com">seoalione1@gmail.com</a>
+          <a href="https://wa.me/923042349059">+92 304 2349059</a>
+          <a href="https://wa.me/923097083595">+92 309 7083595</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Muhammad Ali Qureshi</span>
+      <span>Bahawalpur, Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+    const subject = encodeURIComponent('Project inquiry: ' + service);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Service: ' + service + '\n\n' +
+      'Message:\n' + message
+    );
+    window.location.href = 'mailto:seoalione1@gmail.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+</body>
+</html>
