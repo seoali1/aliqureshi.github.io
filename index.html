@@ -6,108 +6,148 @@
 <title>Muhammad Ali Qureshi — AI Automation & Web Systems</title>
 <meta name="description" content="AI expert and web developer based in Bahawalpur, Pakistan. I build websites, automation tools, and AI chatbots that cut manual workload for real businesses.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header class="site-header">
+<!-- Decorative fixed layers -->
+<div class="grid-overlay" aria-hidden="true"></div>
+<canvas id="net-canvas" aria-hidden="true"></canvas>
+<div class="glyph-field" id="glyph-field" aria-hidden="true"></div>
+
+<header class="site-header" id="site-header">
   <nav class="nav">
-    <a href="index.html" class="nav-logo"><span class="dot"></span>M. ALI QURESHI</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <a href="#home" class="nav-logo"><span class="dot"></span><span class="logo-txt">M.ALI<span class="logo-blink">_</span>QURESHI</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" data-nav="home" class="active">Home</a></li>
+      <li><a href="#services" data-nav="services">Services</a></li>
+      <li><a href="#projects" data-nav="projects">Projects</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">Let's talk</a>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <a href="#contact" class="nav-cta">Let's talk<span class="cta-arrow">→</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">AI Expert &amp; Automation Builder — Bahawalpur, PK</span>
-      <h1>I build the systems that run your business <span class="accent">while you sleep.</span></h1>
-      <p class="hero-sub">Since 2017 I've designed websites, built AI automation tools, and shipped chatbots for freelance clients — work that now manages 50+ sites and removes hours of manual work every day.</p>
-      <div class="hero-actions">
-        <a href="projects.html" class="btn btn-primary">View my work</a>
-        <a href="contact.html" class="btn btn-ghost">Start a project</a>
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap hero-wrap">
+    <div class="hero-copy">
+      <span class="eyebrow" data-reveal><span class="eyebrow-dot"></span>Bahawalpur, PK — Available for freelance work</span>
+      <h1 data-reveal>
+        <span class="line">I build the systems</span>
+        <span class="line">that run your business</span>
+        <span class="line accent-line"><span class="gradient-text">while you sleep<span class="cursor-blink">_</span></span></span>
+      </h1>
+      <p class="hero-sub" data-reveal>Since 2017 I've designed websites, built AI automation tools, and shipped chatbots for freelance clients — work that now manages <strong>50+ sites</strong> and removes hours of manual work every day.</p>
+
+      <div class="hero-role" data-reveal>
+        <span class="mono role-prefix">$ specializes_in --field=</span><span class="mono role-type" id="role-type"></span><span class="mono role-cursor">|</span>
       </div>
-      <div class="hero-meta">
-        <div><strong>2017</strong>Working since</div>
-        <div><strong>7+</strong>Client projects shipped</div>
-        <div><strong>50+</strong>Sites managed via automation</div>
+
+      <div class="hero-actions" data-reveal>
+        <a href="#projects" class="btn btn-primary"><span>View my work</span></a>
+        <a href="#contact" class="btn btn-ghost"><span>Start a project</span></a>
+      </div>
+      <div class="hero-meta" data-reveal>
+        <div><strong data-count="2017" data-plain="true">2017</strong><span>Working since</span></div>
+        <div><strong data-count="7" data-suffix="+">0</strong><span>Client projects shipped</span></div>
+        <div><strong data-count="50" data-suffix="+">0</strong><span>Sites managed via automation</span></div>
       </div>
     </div>
 
-    <div class="console">
+    <div class="console" data-reveal>
       <div class="console-bar">
-        <span class="cdot"></span><span class="cdot"></span><span class="cdot"></span>
-        <span class="clabel">automation-log — live</span>
+        <span class="cdot red"></span><span class="cdot amber"></span><span class="cdot green"></span>
+        <span class="clabel mono">automation-log — live</span>
       </div>
-      <div class="console-body">
-        <div class="console-stat-row">
-          <div class="console-stat"><span class="num">90%</span><span class="lbl">Content time cut</span></div>
-          <div class="console-stat"><span class="num">90%</span><span class="lbl">Workload reduced</span></div>
-          <div class="console-stat"><span class="num">0%</span><span class="lbl">Manual front desk</span></div>
-        </div>
+      <div class="console-body mono" id="console-log"></div>
+      <div class="console-stat-row">
+        <div class="console-stat"><span class="num">90%</span><span class="lbl">Content time cut</span></div>
+        <div class="console-stat"><span class="num">90%</span><span class="lbl">Workload reduced</span></div>
+        <div class="console-stat"><span class="num">0%</span><span class="lbl">Manual front desk</span></div>
       </div>
     </div>
   </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span></span>scroll</div>
 </section>
 
-<section class="stats-strip">
+<!-- ============ STATS STRIP ============ -->
+<section class="stats-strip" data-reveal>
   <div class="wrap">
-    <div class="stat-item"><span class="num" data-count="50" data-suffix="+">0</span><span class="lbl">Sites managed with automation</span></div>
-    <div class="stat-item"><span class="num" data-count="90" data-suffix="%">0</span><span class="lbl">Reduction in content time</span></div>
-    <div class="stat-item"><span class="num" data-count="90" data-suffix="%">0</span><span class="lbl">Reduction in manual workload</span></div>
-    <div class="stat-item"><span class="num" data-count="9" data-suffix=" yrs">0</span><span class="lbl">Freelancing experience</span></div>
+    <div class="stat-item"><span class="num mono" data-count="50" data-suffix="+">0</span><span class="lbl">Sites managed with automation</span></div>
+    <div class="stat-item"><span class="num mono" data-count="90" data-suffix="%">0</span><span class="lbl">Reduction in content time</span></div>
+    <div class="stat-item"><span class="num mono" data-count="90" data-suffix="%">0</span><span class="lbl">Reduction in manual workload</span></div>
+    <div class="stat-item"><span class="num mono" data-count="9" data-suffix=" yrs">0</span><span class="lbl">Freelancing experience</span></div>
   </div>
 </section>
 
-<section class="section">
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What I do</span>
-      <h2>Five disciplines, one goal: less manual work for you.</h2>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow mono">// 01 — what i do</span>
+      <h2>Five disciplines, one goal: <span class="gradient-text">less manual work</span> for you.</h2>
       <p>I don't just design a site or write a script — I connect design, development, SEO, and AI so the whole system runs itself after handoff.</p>
     </div>
 
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">01</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
         <h3>Web Design &amp; Development</h3>
         <p>Full websites from Figma concept to live WordPress, Webflow, or Shopify build.</p>
         <div class="tools"><span>Figma</span><span>WordPress</span><span>Webflow</span><span>Shopify</span></div>
       </div>
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">02</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
         <h3>AI Automation</h3>
         <p>Custom tools that write, post, and manage content across dozens of sites without you touching a keyboard.</p>
         <div class="tools"><span>Python</span><span>n8n</span><span>Make/Zapier</span><span>LangChain</span></div>
       </div>
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">03</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M9 9h.01M15 9h.01M8.5 13.2c1 .9 2 1.3 3.5 1.3s2.5-.4 3.5-1.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
         <h3>AI Chatbots</h3>
         <p>Booking and support bots that answer, qualify, and schedule — so your front desk doesn't have to.</p>
         <div class="tools"><span>n8n</span><span>ChatGPT</span><span>Claude</span></div>
       </div>
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">04</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
         <h3>SEO &amp; Local SEO</h3>
         <p>On-page, technical, and local SEO to get real businesses found by real customers.</p>
         <div class="tools"><span>SEMrush</span><span>Ahrefs</span><span>Search Console</span></div>
       </div>
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">05</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4" width="17" height="12" rx="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
         <h3>UI/UX Design</h3>
         <p>Interfaces designed around how people actually use them — dashboards, product pages, admin panels.</p>
         <div class="tools"><span>Figma</span><span>Adobe XD</span><span>Canva</span></div>
       </div>
-      <div class="service-card">
+      <div class="service-card" data-reveal data-tilt>
         <span class="idx mono">06</span>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
         <h3>AI &amp; SEO Tools</h3>
         <p>I also source and resell vetted AI and SEO tools for teams that want the stack without building it.</p>
         <div class="tools"><span>Tool sourcing</span><span>Setup</span><span>Support</span></div>
@@ -116,89 +156,282 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<!-- ============ TECH MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Python</span><span>·</span><span>n8n</span><span>·</span><span>LangChain</span><span>·</span><span>WordPress</span><span>·</span><span>Webflow</span><span>·</span><span>Shopify</span><span>·</span><span>Figma</span><span>·</span><span>ChatGPT</span><span>·</span><span>Claude</span><span>·</span><span>SEMrush</span><span>·</span><span>Ahrefs</span><span>·</span>
+    <span>Python</span><span>·</span><span>n8n</span><span>·</span><span>LangChain</span><span>·</span><span>WordPress</span><span>·</span><span>Webflow</span><span>·</span><span>Shopify</span><span>·</span><span>Figma</span><span>·</span><span>ChatGPT</span><span>·</span><span>Claude</span><span>·</span><span>SEMrush</span><span>·</span><span>Ahrefs</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section section-alt" id="projects">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Selected work</span>
-      <h2>A few systems I've shipped for clients.</h2>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow mono">// 02 — selected work</span>
+      <h2>Seven systems, <span class="gradient-text">seven different problems</span> solved.</h2>
       <p>Live sites, custom plugins, and automation tools built for freelance clients across e-commerce, content, and services.</p>
     </div>
 
     <div class="projects-grid">
-      <div class="project-card">
+
+      <div class="project-card" data-reveal data-tilt>
         <div class="project-thumb">
-          <img src="images/projects/k2-beverages.jpg" alt="K2 Beverages website hero section, green citrus soda bottle">
+          <img src="images/projects/k2-beverages.jpg" alt="K2 Beverages website hero section, green citrus soda bottle" loading="lazy">
           <span class="project-status">Live</span>
+          <div class="scan-line"></div>
         </div>
         <div class="project-body">
           <span class="project-cat mono">Web Design + Development</span>
           <h3>K2 Beverages</h3>
           <p>Complete brand website design and build for a Pakistani beverage company — from Figma to live launch.</p>
-          <div class="project-tech"><span>Figma</span><span>WordPress</span></div>
-          <a href="https://k2beverage.com.pk/" target="_blank" rel="noopener" class="project-link">View live site →</a>
+          <div class="project-tech"><span>Figma</span><span>WordPress</span><span>HTML/CSS/JS</span></div>
+          <a href="https://k2beverage.com.pk/" target="_blank" rel="noopener" class="project-link">View live site <span class="arrow">→</span></a>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-reveal data-tilt>
         <div class="project-thumb">
-          <img src="images/projects/navtech-automator.jpg" alt="NavTech Automator dashboard showing 1663 campaigns">
-          <span class="project-status">Client tool</span>
+          <img src="images/projects/bela-recipes-grid.jpg" alt="Bela Recipes custom WordPress theme showing recipe grid" loading="lazy">
+          <span class="project-status">Live</span>
+          <div class="scan-line"></div>
         </div>
         <div class="project-body">
-          <span class="project-cat mono">AI Automation</span>
-          <h3>NavTech Automator</h3>
-          <p>Python-built WordPress automation engine for a PBN network — auto-posts content, inserts backlinks, and runs content spinning across dozens of domains.</p>
-          <div class="project-tech"><span>Python</span><span>WordPress</span></div>
+          <span class="project-cat mono">Custom WordPress Theme</span>
+          <h3>Bela Recipes</h3>
+          <p>A custom-built WordPress theme for a recipe blog, designed for fast browsing across categories — built around recipe content, not a generic blog template.</p>
+          <div class="project-tech"><span>WordPress</span><span>Custom Theme</span></div>
+          <a href="https://belarecipes.com/" target="_blank" rel="noopener" class="project-link">View live site <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="project-card" data-reveal data-tilt>
+        <div class="project-thumb">
+          <img src="images/projects/recipe-card.jpg" alt="Auto-generated recipe card plugin output showing ingredients and prep time" loading="lazy">
+          <span class="project-status">Client tool</span>
+          <div class="scan-line"></div>
+        </div>
+        <div class="project-body">
+          <span class="project-cat mono">Custom PHP Plugin</span>
+          <h3>Recipe Maker Plugin</h3>
+          <p>Reads a post's content, auto-detects ingredients and steps, and generates a formatted recipe card — prep time, servings, print button, no manual formatting.</p>
+          <div class="project-tech"><span>PHP</span><span>WordPress</span></div>
           <span class="project-link disabled">Private client tool</span>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-reveal data-tilt>
         <div class="project-thumb">
-          <img src="images/projects/profix-chatbot.jpg" alt="ProFix Roofing AI chatbot booking assistant conversation">
-          <span class="project-status">Live</span>
+          <img src="images/projects/navtech-automator.jpg" alt="NavTech Automator dashboard showing 1663 campaigns" loading="lazy">
+          <span class="project-status">Client tool</span>
+          <div class="scan-line"></div>
         </div>
         <div class="project-body">
-          <span class="project-cat mono">AI Chatbot</span>
+          <span class="project-cat mono">AI Automation — Python</span>
+          <h3>NavTech Automator</h3>
+          <p>WordPress automation engine for a client's PBN network — auto-posts content, inserts backlinks, and runs a content spin-rewriter across 1,600+ campaigns.</p>
+          <div class="project-tech"><span>Python</span><span>WordPress API</span><span>Automation</span></div>
+          <span class="project-link disabled">Private client tool</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-reveal data-tilt>
+        <div class="project-thumb">
+          <img src="images/projects/m2-dashboard.jpg" alt="M2 Tech Poster automation dashboard connected to homegadget.info" loading="lazy">
+          <span class="project-status">Client tool</span>
+          <div class="scan-line"></div>
+        </div>
+        <div class="project-body">
+          <span class="project-cat mono">AI Automation — n8n / Python</span>
+          <h3>M2 Tech Poster</h3>
+          <p>SEO blog automation for client "M2 Tech" — writes full posts with images, inserts backlinks, and publishes to WordPress in single or batch mode.</p>
+          <div class="project-tech"><span>Python</span><span>n8n</span><span>WordPress API</span></div>
+          <span class="project-link disabled">Private client tool</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-reveal data-tilt>
+        <div class="project-thumb">
+          <img src="images/projects/nr-freshness.jpg" alt="NR Freshness fruit and vegetable delivery dashboard for Bahawalpur" loading="lazy">
+          <span class="project-status">Private client</span>
+          <div class="scan-line"></div>
+        </div>
+        <div class="project-body">
+          <span class="project-cat mono">Web Design + Development</span>
+          <h3>NR Freshness</h3>
+          <p>Full design and development of a fruits &amp; vegetables delivery platform — order tracking, wishlist, offers, and a best-sellers dashboard.</p>
+          <div class="project-tech"><span>Figma</span><span>UI/UX</span><span>Web Development</span></div>
+          <span class="project-link disabled">Private — client request</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-reveal data-tilt>
+        <div class="project-thumb">
+          <img src="images/projects/profix-chatbot.jpg" alt="ProFix Roofing AI chatbot booking assistant conversation" loading="lazy">
+          <span class="project-status">Live</span>
+          <div class="scan-line"></div>
+        </div>
+        <div class="project-body">
+          <span class="project-cat mono">AI Chatbot — n8n</span>
           <h3>ProFix Roofing Assistant</h3>
           <p>A 24/7 booking chatbot that qualifies leads, books free inspections, and answers questions — no front-desk staff required.</p>
-          <div class="project-tech"><span>n8n</span><span>ChatGPT</span></div>
+          <div class="project-tech"><span>n8n</span><span>ChatGPT</span><span>Chat Widget</span></div>
           <span class="project-link disabled">Client deployment</span>
         </div>
       </div>
-    </div>
 
-    <div style="margin-top:44px; text-align:center;">
-      <a href="projects.html" class="btn btn-ghost">See all projects</a>
     </div>
   </div>
 </section>
 
-<section class="cta-band">
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="wrap about-hero">
+    <div class="about-photo" data-reveal>
+      <div class="photo-frame">
+        <img src="images/profile.jpg" alt="Muhammad Ali Qureshi">
+      </div>
+      <div class="photo-tag mono">status: <span class="status-live">available</span></div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow mono">// 03 — about me</span>
+      <h2>An SEO background that grew into an <span class="gradient-text">AI practice</span>.</h2>
+      <p>I'm Muhammad Ali Qureshi, an AI expert based in Bahawalpur, Pakistan. After completing my SEO training from PIT, I stepped into the world of AI — and haven't looked back. Since 2017, I've delivered dozens of projects spanning website design &amp; development, AI-powered automation tools, and intelligent chatbots that save businesses real time and money.</p>
+    </div>
+  </div>
+
   <div class="wrap">
-    <h2>Have a project that needs less manual work?</h2>
-    <p>Tell me what you're building — website, automation, or a chatbot — and I'll tell you honestly if I can help.</p>
-    <div class="cta-actions">
-      <a href="https://wa.me/923042349059" target="_blank" rel="noopener" class="btn btn-primary">Message on WhatsApp</a>
-      <a href="contact.html" class="btn btn-ghost">Contact page</a>
+    <div class="timeline" data-reveal>
+      <div class="timeline-line"><div class="timeline-line-fill"></div></div>
+      <div class="timeline-item">
+        <span class="yr mono">Early training</span>
+        <h3>SEO course — PIT Institution</h3>
+        <p>Started with a formal SEO training program, learning on-page, technical, and search fundamentals that still shape how I approach every project today.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="yr mono">2017 — Onward</span>
+        <h3>Freelance web design &amp; development</h3>
+        <p>Began taking on freelance clients for website design and development — Figma to WordPress, Webflow, and Shopify builds — while continuing to specialize in SEO and local SEO.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="yr mono">Recent years</span>
+        <h3>Stepped into AI automation</h3>
+        <p>Moved from designing sites to building the systems behind them: Python and n8n-based tools that write, post, and manage content automatically, plus AI chatbots for front-desk work.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="yr mono">Today</span>
+        <h3>AI expert &amp; automation builder</h3>
+        <p>Running and maintaining automation tools across 50+ client sites, building AI chatbots for service businesses, and sourcing AI/SEO tools for teams that want the stack without the build.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="skills-columns" data-reveal>
+      <div class="skill-col">
+        <h4 class="mono">&lt;design/&gt;</h4>
+        <ul><li>Figma</li><li>Adobe XD</li><li>Canva</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4 class="mono">&lt;web/&gt;</h4>
+        <ul><li>HTML / CSS / JS</li><li>WordPress</li><li>Webflow</li><li>Shopify</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4 class="mono">&lt;ai_automation/&gt;</h4>
+        <ul><li>ChatGPT</li><li>Claude</li><li>n8n</li><li>Make / Zapier</li><li>Python</li><li>LangChain</li></ul>
+      </div>
+      <div class="skill-col">
+        <h4 class="mono">&lt;seo/&gt;</h4>
+        <ul><li>SEMrush</li><li>Ahrefs</li><li>Google Search Console</li><li>Local SEO tools</li></ul>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow mono">// 04 — get in touch</span>
+      <h2>Tell me what you're <span class="gradient-text">trying to build</span>.</h2>
+      <p>Whether it's a full website, an automation tool, or an AI chatbot — send the details and I'll reply honestly about scope, timeline, and whether it's a good fit.</p>
+    </div>
+
+    <div class="contact-grid" data-reveal>
+      <div>
+        <div class="contact-card" data-tilt>
+          <div class="contact-icon mono">@</div>
+          <div><h4>Email</h4><a href="mailto:seoalione1@gmail.com">seoalione1@gmail.com</a></div>
+        </div>
+        <div class="contact-card" data-tilt>
+          <div class="contact-icon mono">WA</div>
+          <div><h4>WhatsApp (primary)</h4><a href="https://wa.me/923042349059" target="_blank" rel="noopener">+92 304 2349059</a></div>
+        </div>
+        <div class="contact-card" data-tilt>
+          <div class="contact-icon mono">WA</div>
+          <div><h4>WhatsApp (alternate)</h4><a href="https://wa.me/923097083595" target="_blank" rel="noopener">+92 309 7083595</a></div>
+        </div>
+        <div class="contact-card" data-tilt>
+          <div class="contact-icon mono">PK</div>
+          <div><h4>Location</h4><span>Bahawalpur, Punjab, Pakistan</span></div>
+        </div>
+        <p class="contact-note">WhatsApp usually gets the fastest reply. For detailed briefs with files or documents, email works best.</p>
+      </div>
+
+      <div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option>Website design & development</option>
+              <option>AI automation tool</option>
+              <option>AI chatbot</option>
+              <option>SEO / Local SEO</option>
+              <option>UI/UX design</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" required placeholder="Tell me a bit about what you're building and your timeline..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><span>Send via email</span></button>
+          <p class="contact-note">This opens your email app with the message pre-filled — nothing is sent from this page directly, since it's a static, no-backend site.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="cta-band-inline" data-reveal>
+      <a href="https://wa.me/923042349059" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <div class="footer-logo mono">M. ALI QURESHI</div>
+        <div class="footer-logo mono">M.ALI_QURESHI</div>
         <p>AI expert, web designer, and automation builder based in Bahawalpur, Pakistan. Working with freelance clients since 2017.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Site</h4>
-          <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
