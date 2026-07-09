@@ -4,7 +4,7 @@ A 4-page static site (Home, Projects, About, Contact). No build step, no backend
 
 ## Deploy for $0 with GitHub Pages
 
-1. Create a GitHub account if you don't have one (free).
+1. Create a GitHub account if you don't  have one (free).
 2. Create a new repository named exactly: `yourusername.github.io` (replace with your actual GitHub username).
 3. Upload all files from this folder (`index.html`, `about.html`, `projects.html`, `contact.html`, `css/`, `js/`, `images/`) to the root of that repo.
 4. Go to the repo's **Settings → Pages**, set the source branch to `main` and folder to `/ (root)`.
